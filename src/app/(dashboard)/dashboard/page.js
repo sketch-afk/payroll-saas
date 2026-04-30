@@ -60,7 +60,7 @@ export default function DashboardPage() {
   // Prevent rendering anything timezone-dependent or random until hydration is complete
   if (!isMounted || loading) {
     return (
-      <div className="flex items-center justify-center h-64">
+      <div className="flex items-center justify-center h-64 ">
         <div className="spinner" />
       </div>
     );
@@ -90,8 +90,8 @@ export default function DashboardPage() {
       </div>
 
       {/* Stat cards */}
-      <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
-        <StatCard delay="1" icon="👥" label="Total Employees" color="#C9963A"
+      <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 ">
+        <StatCard delay="1" icon="👥" label="Total Employees"  color="#C9963A"
           value={emp?.TOTAL ?? '—'} sub={`${emp?.ACTIVE ?? 0} active`} />
         <StatCard delay="2" icon="💰" label="Gross Payroll" color="#3DBF82"
           value={pay?.TOTAL_GROSS ? `₹${(Number(pay.TOTAL_GROSS)/1000).toFixed(0)}k` : '—'}
@@ -122,12 +122,13 @@ export default function DashboardPage() {
             </div>
           </div>
           <ResponsiveContainer width="100%" height={210}>
-            <BarChart data={barData} barGap={3} barSize={12}>
+            <BarChart data={barData} barGap={3} barSize={12} >
               <XAxis dataKey="month" tick={{ fill:'#3A3A5C', fontSize:11, fontFamily:'Syne' }}
                      axisLine={false} tickLine={false} />
               <YAxis tick={{ fill:'#3A3A5C', fontSize:10 }} axisLine={false} tickLine={false}
                      tickFormatter={v => `₹${(v/1000).toFixed(0)}k`} />
               <Tooltip
+                cursor={{ fill: 'rgba(255, 255, 255, 0.04)' }}
                 contentStyle={{ background:'#0F0F1E', border:'1px solid rgba(201,150,58,0.2)', borderRadius:10, fontFamily:'Outfit' }}
                 labelStyle={{ color:'#C9963A', fontFamily:'Syne', fontWeight:700 }}
                 formatter={(v, n) => [`₹${Number(v).toLocaleString('en-IN')}`, n === 'gross' ? 'Gross' : 'Net']}
@@ -151,7 +152,7 @@ export default function DashboardPage() {
                     {pieData.map((_, i) => <Cell key={i} fill={PIE_COLORS[i % PIE_COLORS.length]} />)}
                   </Pie>
                   <Tooltip
-                    contentStyle={{ background:'#0F0F1E', border:'1px solid rgba(201,150,58,0.2)', borderRadius:8, fontFamily:'Outfit' }}
+                    contentStyle={{ background:'white',fontSize: '13px' , border:'1px solid rgba(201,150,58,0.2)', borderRadius:6, fontFamily:'Outfit', }}
                   />
                 </PieChart>
               </ResponsiveContainer>
