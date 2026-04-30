@@ -10,6 +10,8 @@ A modern payroll management SaaS built with Next.js, Tailwind CSS, NextAuth, and
 - Attendance tracking with present/absent/half-day/leave statuses
 - Leave application workflow with pending/approved/rejected states
 - Payroll generation and reporting with salary structure support
+- Employee payslip generation for monthly salary and attendance details
+- Download or share generated payslips directly from the payroll UI
 - Dashboard UI for companies, employees, departments, payroll, attendance, and leaves
 - Oracle DB integration using `oracledb` and query helpers
 
